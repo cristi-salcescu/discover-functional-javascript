@@ -1,0 +1,103 @@
+(123).toString();  //"123"
+(1.23).toFixed(1); //"1.2"
+
+
+Number.parseInt("1");       //1
+Number.parseInt("text");    //NaN
+Number.parseFloat("1.234"); //1.234
+Number("1");                //1
+Number("1.234");            //1.234
+
+
+"text".substring(1,3); //"ex"
+"text".indexOf('x');   //2
+"text".concat(" end"); //"text end"
+
+
+let obj = {
+  message : "read me",
+  doSomething : function() {}
+}
+
+
+let obj = {};
+obj.message = "read me"; //add
+obj.message = "enjoy"; //edit
+delete obj.message; //remove
+
+
+let stack = [];
+stack.push(1);           //[1]
+stack.push(2);           //[1, 2]
+let last = stack.pop();  //[1]
+console.log(last);       //2
+
+
+let queue = [];
+queue.push(1);           //[1]
+queue.push(2);           //[1, 2]
+let first = queue.shift();//[2]
+console.log(first);      //1
+
+
+let theObject = {
+  name : "name",
+  getName: function(){
+    return this.name;
+  }
+}
+
+theObject.getName(); //name
+
+//----------------
+
+let otherObject = {
+  name : "otherName"
+}
+
+function getName(){
+  return this.name;
+}
+
+getName.apply(otherObject); //otherName
+getName.call(otherObject);  //otherName
+
+//----------------
+
+function logAll(){
+  console.log(arguments);
+}
+
+logAll("msg1", "msg2", "msg3");
+//Arguments(3)["msg1","msg2","msg3"]
+
+//----------------
+
+function getObject(){ 
+  return 
+  {
+  }
+}
+
+getObject();
+
+//----------------
+
+function log(value){
+  console.log(value);
+}
+
+log(1);
+log("text");
+log({message : "text"});
+
+//----------------
+
+let n = 1;
+typeof(n);   //"number"
+
+let s = "text";
+typeof(s);   //"string"
+
+let fn = function() {};
+typeof(fn);  //"function"

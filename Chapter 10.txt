@@ -1,0 +1,31 @@
+(() => {
+    /*code*/
+    (() => {
+        /*code*/
+        (() => {
+            /*code*/
+        })();  
+    })();
+})();
+
+
+(function createTodoModule(){
+  /*code*/
+  (function getAllTodos(){
+    /*code*/
+    (function renderTodo(){
+      /*code*/
+    })();  
+  })();
+})();
+
+
+//with arrow function
+const prop = key => obj => obj[key];
+
+//with function keyword
+function prop(key){
+   return function(obj){
+      return obj[key];
+   }
+}

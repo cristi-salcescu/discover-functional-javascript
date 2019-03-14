@@ -1,0 +1,70 @@
+const timer = {
+  secret: 0,
+  start : function() {},
+  stop : function() {},
+}
+
+timer.secret; //0 
+timer.start = function() { 
+  console.log("new implementation"); 
+}
+
+//-----------------------
+
+const timerPrototype = {
+  start : function() {},
+  stop : function() {}
+};
+
+const timer = Object.create(timerPrototype);
+timer.__proto__ === timerPrototype; //true
+
+//-----------------------
+
+const timerPrototype = Object.freeze({
+  start : function() {},
+  stop : function() {}
+});
+
+const timer = Object.create(timerPrototype);
+timer.start = function() { 
+  console.log("new implementation"); 
+}
+
+//-----------------------
+
+function Timer(){
+  this.secret = 0;
+}
+
+Timer.prototype = {
+  start : function() {},
+  stop : function() {}
+}
+
+const timer = new Timer();
+timer.start();
+
+//-----------------------
+
+function newTimer(){
+  let newObj = Object.create(Timer.prototype);
+    let returnObj = Timer.call(newObj, arguments);
+    if(returnObj) return returnObj;
+      
+    return newObj;
+}
+
+//-----------------------
+
+class Timer{
+  constructor(){
+    this.secret = 0;
+  }
+  
+  start() {}
+  stop() {}  
+}
+
+const timer = new Timer();
+timer.__proto__ === Timer.prototype;

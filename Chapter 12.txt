@@ -1,0 +1,29 @@
+function block(duration){
+  const starTime = Date.now();
+  while (Date.now() < starTime + duration) {}
+}
+
+function logMessage(){
+  console.log("process ended");
+}
+
+block(5000);
+logMessage();
+
+//-----------------------------
+
+function logMessage(){
+  console.log("process ended");
+}
+
+function delay(duration, callback){
+  setTimeout(callback, duration);
+}
+
+delay(5000, logMessage);
+
+//-----------------------------
+
+for(let i=0; i<10000000000; i++){}
+
+
