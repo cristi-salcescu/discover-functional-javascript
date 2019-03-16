@@ -1,0 +1,26 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<script>
+function debounce(fn, interval) {
+  let timer;
+  return function debounced(...args) {
+    clearTimeout(timer);
+    timer = setTimeout(function(){
+      fn(...args);
+    }, interval);
+  }
+}
+
+function process(){
+	console.log("process");
+}
+
+let debouncedProcess = debounce(process, 400);
+$(window).resize(debouncedProcess);
+</script>
+</body>
+</html>

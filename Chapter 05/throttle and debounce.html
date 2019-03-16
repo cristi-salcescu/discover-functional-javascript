@@ -1,0 +1,44 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<button id="throttle">throttle Click</button>
+<button id="debounce">debounce Click</button>
+<div>
+Fast click the buttons multiple times to fire many events.
+</div>
+<script>
+function throttle(fn, interval) {
+  let lastTime;
+  return function throttled(...args) {
+    if(!lastTime || (Date.now() - lastTime >= interval)) {
+      fn(...args);
+      lastTime = Date.now();
+    }
+  }
+}
+
+function debounce(fn, interval) {
+  let timer;
+  return function debounced(...args) {
+    clearTimeout(timer);
+    timer = setTimeout(function(){
+      fn(...args);
+    }, interval);
+  }
+}
+
+function process(){
+	console.log("process");
+}
+
+let throttledProcess = throttle(process, 1000);
+let debouncedProcess = debounce(process, 1000);
+
+$("#throttle").click(throttledProcess);
+$("#debounce").click(debouncedProcess);
+
+</script>
+</body>
+</html>

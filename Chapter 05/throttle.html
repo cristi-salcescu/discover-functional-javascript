@@ -1,0 +1,26 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<script>
+function throttle(fn, interval) {
+  let lastTime;
+  return function throttled(...args) {
+    if(!lastTime || (Date.now() - lastTime >= interval)) {
+      fn(...args);
+      lastTime = Date.now();
+    }
+  }
+}
+
+function process(){
+	console.log("process");
+}
+
+let throttledProcess = throttle(process, 1000);
+$(window).mousemove(throttledProcess);
+</script>
+</body>
+</html>
