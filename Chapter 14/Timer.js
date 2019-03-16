@@ -23,7 +23,11 @@ function Timer(callback, interval){
   return Object.freeze({
     start,
     stop
-  });  
+  });
+}
+
+function getTodos(){
+  return fetch("/todos");
 }
 
 const timer = Timer(getTodos, 2000);

@@ -26,3 +26,15 @@ function EventEmitter(){
     publish
   });
 }
+
+const eventEmitter = EventEmitter();
+
+eventEmitter.subscribe("update", doSomething);
+eventEmitter.subscribe("update", doSomethingElse);
+eventEmitter.subscribe("add", addItem);
+
+eventEmitter.publish("update", {});
+
+function doSomething(value) { }
+function doSomethingElse(value) { }
+function addItem(value) { }
