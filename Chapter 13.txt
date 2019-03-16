@@ -1,3 +1,54 @@
+const obj = {
+  message : "discover"
+}
+
+obj.message; //"discover"
+
+//-----------------------
+
+const french = {};
+french["thank you very much"] = "merci beaucoup";
+
+french["thank you very much"]; //"merci beaucoup"
+
+//-----------------------
+
+const obj = {};
+
+//Number
+obj[1] = "Number 1";
+obj[1] === obj["1"]; //true
+
+//Object
+const number1 = {
+  toString : function() {return "1";}
+}
+obj[number1] === obj["1"]; //true
+
+//-----------------------
+
+const book = {
+  title : "How JavaScript Works",
+  author : {
+    firstName : "Douglas",
+    lastName : "Crockford"
+  }
+}
+
+//-----------------------
+
+const app = {};
+
+app.authorGateway = { 
+  getAuthors : function() {} 
+};
+
+app.bookGateway = { 
+  getBooks : function() {} 
+};
+
+//-----------------------
+
 const timer = {
   secret: 0,
   start : function() {},
@@ -49,10 +100,10 @@ timer.start();
 
 function newTimer(){
   let newObj = Object.create(Timer.prototype);
-    let returnObj = Timer.call(newObj, arguments);
-    if(returnObj) return returnObj;
-      
-    return newObj;
+  let returnObj = Timer.call(newObj, arguments);
+  if(returnObj) return returnObj;
+    
+  return newObj;
 }
 
 //-----------------------
@@ -68,3 +119,12 @@ class Timer{
 
 const timer = new Timer();
 timer.__proto__ === Timer.prototype;
+
+//-----------------------
+
+function logProperty(name){
+  console.log(name); //property name
+  console.log(obj[name]); //value
+}
+
+Object.keys(obj).forEach(logProperty);
