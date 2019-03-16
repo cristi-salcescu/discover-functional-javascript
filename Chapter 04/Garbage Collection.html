@@ -1,0 +1,36 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<button id="add">Add 50000 objects</button>
+<button id="clear">Remove Reference</button>
+
+<script>
+function createAddClosure(){
+    let arr = [];
+    return function(obj){
+       arr.push(obj);
+    }
+}
+let add = createAddClosure();
+
+function Todo(){}
+
+function addALotOfObjects(){
+    for(let i=1; i<=10000;i++) {
+       add(new Todo(i));
+    }
+}
+
+function clearAllObjects(){
+    if(add){
+       add = null;
+    }
+}
+
+$("#add").click(addALotOfObjects);
+$("#clear").click(clearAllObjects);
+</script>
+</body>
+</html>

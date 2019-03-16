@@ -1,0 +1,22 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<button id="btn1">Click1</button>
+<button id="btn2">Click2</button>
+<button id="btn3">Click3</button>
+
+<script>
+function initEvents(){
+  for(var i=1; i<=3; i++){
+    $("#btn"+i).click(function log(){
+      console.log(i); //4
+    });
+  }
+}
+
+initEvents();
+</script>
+</body>
+</html>

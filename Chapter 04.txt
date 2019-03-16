@@ -47,41 +47,6 @@
 
 //--------------------
 
-function initEvents(){
-  for(var i=1; i<=3; i++){
-    $("#btn"+i).click(function log(){
-      console.log(i); //4
-    });
-  }
-}
-
-initEvents();
-
-//--------------------
-
-function initEvents(){
-  for(let i=1; i<=3; i++){
-    $("#btn"+i).click(function log(){
-      console.log(i); //1 2 3
-    });
-  }
-}
-
-initEvents();
-
-//--------------------
-
-function initEvents(){
-  let i;  
-  for(i=1; i<=3; i++){
-    $("#btn"+i).click(function log(){
-      console.log(i); //4
-    });
-  }
-}
-
-//--------------------
-
 function* sequence(){
   let count = 0;
   while(true) {
@@ -131,29 +96,3 @@ const counter = (function(){
     }
 })();
 
-//--------------------
-//https://jsfiddle.net/cristi_salcescu/7d4g4bx5/
-
-const add = (function createAddClosure(){
-    let arr = [];
-    return function(obj){
-       arr.push(obj);
-    }
-})();
-
-function Todo(){}
-
-function addALotOfObjects(){
-    for(let i=1; i<=10000;i++) {
-       add(new Todo(i));
-    }
-}
-
-function clearAllObjects(){
-    if(add){
-       add = null;
-    }
-}
-
-$("#add").click(addALotOfObjects);
-$("#clear").click(clearAllObjects);
