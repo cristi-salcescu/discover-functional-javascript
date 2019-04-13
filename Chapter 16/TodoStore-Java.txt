@@ -1,0 +1,52 @@
+import java.util.List;
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
+public class TodoStore
+{
+  private List<Todo> list;
+    
+  public TodoStore()
+  {
+    this.list = new ArrayList<Todo>();
+  }
+  
+  public void push(Todo todo)
+  {
+    list.add(todo);
+  }
+  
+  public List<Todo> getBy(String text)
+  {
+    return list.stream()
+      .filter(todo -> todo.Title.contains(text))
+      .collect(Collectors.toList());
+  }
+}
+
+public class Todo 
+{
+  public Integer Id;
+  public String Title; 
+  
+  public Todo(Integer id, String title) 
+  {
+    this.Id = id;
+    this.Title = title;
+  }
+}
+
+public class StartApplication
+{
+  public static void main(String[] args)
+  {
+    TodoStore todoStore = new TodoStore();
+    
+    todoStore.push(new Todo(1, "find"));
+    todoStore.push(new Todo(2, "read"));
+    todoStore.push(new Todo(3, "share"));
+    
+    List<Todo> filterTodos = todoStore.getBy("read");
+    System.out.print("Count:" + filterTodos.size());
+  }
+}  

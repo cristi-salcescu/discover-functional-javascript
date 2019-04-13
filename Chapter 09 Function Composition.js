@@ -1,6 +1,6 @@
 function compose(...functions){
   return function(x){
-	return functions.reduceRight((value,f) => f(value), x);
+	  return functions.reduceRight((value,f) => f(value), x);
   }
 }
 
@@ -16,6 +16,6 @@ f(g(2)) === compose(f,g)(2);
 
 function pipe(...functions){
   return function(x){
-	return functions.reduce((value, f) => f(value), x);
+	  return functions.reduce((value, f) => f(value), x);
   }
 }

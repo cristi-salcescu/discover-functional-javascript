@@ -55,10 +55,11 @@ const timer = {
   stop : function() {},
 }
 
-timer.secret; //0 
+timer.secret; //0
 timer.start = function() { 
-  console.log("new implementation"); 
+  console.log("don't start");
 }
+timer.start(); //"don't start"
 
 //-----------------------
 

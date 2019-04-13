@@ -96,3 +96,34 @@ const counter = (function(){
     }
 })();
 
+counter.increment(); //1
+counter.increment(); //2
+counter.decrement(); //1
+
+//--------------------
+
+//module "./counter.js"
+let state = 0;
+
+function increment() {
+  state += 1;
+  return state;
+}
+
+function decrement() {
+  state -= 1;
+  return state;
+}
+
+export default {
+  increment,
+  decrement
+}
+
+//module "./index.js"
+import counter from "./counter";
+
+counter.increment(); //1
+counter.increment(); //2
+counter.decrement(); //1
+

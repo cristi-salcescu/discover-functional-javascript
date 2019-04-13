@@ -14,9 +14,16 @@ Number("1.234");            //1.234
 "text".concat(" end"); //"text end"
 
 
+if('') {
+  console.log("true");
+} else {
+  console.log("false");
+}
+
+
 let obj = {
-  message : "read me",
-  doSomething : function() {}
+  message: "read me",
+  doSomething: function() {}
 }
 
 
@@ -40,27 +47,43 @@ let first = queue.shift();//[2]
 console.log(first);      //1
 
 
+(function autorun(){
+  console.log("executed");
+})();
+//"executed"
+
+
 let theObject = {
-  name : "name",
+  name: "name",
   getName: function(){
     return this.name;
   }
 }
 
-theObject.getName(); //name
+theObject.getName(); //"name"
 
 //----------------
 
 let otherObject = {
-  name : "otherName"
+  name: "otherName"
 }
 
 function getName(){
   return this.name;
 }
 
-getName.apply(otherObject); //otherName
-getName.call(otherObject);  //otherName
+getName.apply(otherObject); //"otherName"
+getName.call(otherObject);  //"otherName"
+
+//----------------
+
+"use strict";
+function getName(){
+  return this.name;
+}
+
+getName(); 
+//Cannot read property 'name' of undefined
 
 //----------------
 

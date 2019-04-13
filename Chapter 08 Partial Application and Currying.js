@@ -4,13 +4,18 @@ function partial(fn, ...leftArgs) {
   }
 }
 
-function curry(f, leftArgs = []){
+function curry(f, length, leftArgs = []){
+  let noArguments = f.length;
+  if(length) {
+    noArguments = length;
+  }
+  
   return function(...args){
     const allArgs = [...leftArgs, ...args];
-    if (allArgs.length >= f.length) {
+    if (allArgs.length >= noArguments){
       return f(...allArgs);
     } else{
-      return curry(f, allArgs);
+      return curry(f, length, allArgs);
     }
   }
 }
