@@ -2,7 +2,7 @@ Code examples from Discover Functional JavaScript book.
 
 Cristian Salcescu
 
-Book is available on:
+The book is available on:
 
 [https://www.amazon.com/dp/B07PBQJYYG](https://www.amazon.com/dp/B07PBQJYYG)
 
