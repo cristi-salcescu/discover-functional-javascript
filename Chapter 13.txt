@@ -7,23 +7,23 @@ obj.message; //"discover"
 //-----------------------
 
 const french = {};
-french["thank you very much"] = "merci beaucoup";
+french["Thank you"] = "Merci";
 
-french["thank you very much"]; //"merci beaucoup"
+french["Thank you"]; //"Merci"
 
 //-----------------------
 
 const obj = {};
 
-//Number
+//Number as key
 obj[1] = "Number 1";
-obj[1] === obj["1"]; //true
+obj[1] === obj['1']; //true
 
-//Object
+//Object as key
 const number1 = {
-  toString : function() {return "1";}
+  toString : function() {return '1';}
 }
-obj[number1] === obj["1"]; //true
+obj[number1] === obj['1']; //true
 
 //-----------------------
 
@@ -80,7 +80,7 @@ const timerPrototype = Object.freeze({
 
 const timer = Object.create(timerPrototype);
 timer.start = function() { 
-  console.log("new implementation"); 
+  console.log("don't start"); 
 }
 
 //-----------------------
